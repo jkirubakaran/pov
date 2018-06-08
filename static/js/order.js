@@ -25,6 +25,9 @@ function toggleOrderConfirmModal(){
     type: 'POST',
     url: 'https://coffeereadyfuncapp.azurewebsites.net/api/neworder?code=nA1DsQQRltTEsu2pma7oi8uqSaeEmaazNNxZblOHpKPopgRS0/5ORw==',
     data: JSON.stringify(data),
+    headers: {
+          'Access-Control-Allow-Origin': '*'
+    },
     contentType: "application/json; charset=utf-8",
     traditional: true,
       success: function (data) {
