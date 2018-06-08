@@ -12,12 +12,39 @@ $('#exampleModal').on('show.bs.modal', function (event) {
 
 function toggleOrderConfirmModal(){
   $('#exampleModal').modal('hide');
-  $.post( "test.php", { first_name: $('#fname').val(),
-                        last_name: $('#lname').val(),
-                        cell: $('#cell').val(),
-                        order_id: getRandomInt(1,99999),
-                        item: selected,
-                        order_time: Date.now()  } );
+
+  data = JSON.stringify({ FirstName: $('#fname').val(),
+                          LastName: $('#lname').val(),
+                          PhoneNumber: $('#cell').val(),
+                          OrderId: getRandomInt(1,99999),
+                          ItemName: selected,
+                          ReceivedDate: Date.now()  });
+                      
+
+  $.ajax({
+    type: 'POST',
+    url: 'https://coffeereadyfuncapp.azurewebsites.net/api/neworder?code=nA1DsQQRltTEsu2pma7oi8uqSaeEmaazNNxZblOHpKPopgRS0/5ORw==',
+    data: JSON.stringify(data),
+    headers: {
+      'Access-Control-Allow-Credentials': 'true',
+          'Access-Control-Allow-Origin': 'https://azurewebsites.net',
+          'Access-Control-Allow-Methods': 'POST',
+          'Access-Control-Request-Headers': 'X-Custom-Header'
+    },
+    contentType: "application/json; charset=utf-8",
+    traditional: true,
+      success: function (data) {
+          
+      }
+    });
+/*
+  $.post( "test.php", { FirstName: $('#fname').val(),
+                        LastName: $('#lname').val(),
+                        PhoneNumber: $('#cell').val(),
+                        OrderId: getRandomInt(1,99999),
+                        ItemName: selected,
+                        ReceivedDate: Date.now()  } );
+  */
   $('#confirmationModal').modal('show');
 }
 
