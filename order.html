@@ -33,32 +33,32 @@
     <div class="card-deck mb-3 text-center">
       <div class="card mb-4 box-shadow">
         <div class="card-header">
-          <h4 class="my-0 font-weight-normal">Free</h4>
+          <h4 class="my-0 font-weight-normal">Salad</h4>
         </div>
         <img class="card-img-top" src="static/images/salad.jpg" alt="Card image cap">
         <div class="card-body">
           <h1 class="card-title pricing-card-title">$4</h1>
-          <button type="button" class="btn btn-lg btn-block btn-outline-primary" data-toggle="modal" data-target="#exampleModal">Purchase</button>
+          <button type="button" class="btn btn-lg btn-block btn-outline-primary" onclick="selected='Salad';" data-selected="Salad" data-toggle="modal" data-target="#exampleModal">Purchase</button>
         </div>
       </div>
       <div class="card mb-4 box-shadow">
         <div class="card-header">
-          <h4 class="my-0 font-weight-normal">Pro</h4>
+          <h4 class="my-0 font-weight-normal">Sandwich</h4>
         </div>
         <img class="card-img-top" src="static/images/sandwich.jpg" alt="Card image cap">
         <div class="card-body">
           <h1 class="card-title pricing-card-title">$4</h1>
-          <button type="button" class="btn btn-lg btn-block btn-outline-primary" data-toggle="modal" data-target="#exampleModal">Purchase</button>
+          <button type="button" class="btn btn-lg btn-block btn-outline-primary" onclick="selected='Sandwich';" data-toggle="modal" data-target="#exampleModal">Purchase</button>
         </div>
       </div>
       <div class="card mb-4 box-shadow">
         <div class="card-header">
-          <h4 class="my-0 font-weight-normal">Enterprise</h4>
+          <h4 class="my-0 font-weight-normal">Yogurt</h4>
         </div>
         <img class="card-img-top" src="static/images/yogurt.jpg" alt="Card image cap">
         <div class="card-body">
           <h1 class="card-title pricing-card-title">$4</h1>
-          <button type="button" class="btn btn-lg btn-block btn-outline-primary" data-toggle="modal" data-target="#exampleModal">Purchase</button>
+          <button type="button" class="btn btn-lg btn-block btn-outline-primary" onclick="selected='Yogurt';" data-toggle="modal" data-target="#exampleModal">Purchase</button>
         </div>
       </div>
     </div>
@@ -83,7 +83,7 @@
                 Item:
               </div>
               <div>
-                <div id="item-ordered"> This is a placeholder item</div>
+                <div id="item-ordered" > </div>
               </div>
 
               <br>
@@ -93,37 +93,68 @@
           <form>
             <div class="form-row">
               <div class="col">
-                <input type="text" class="form-control" placeholder="First name">
+                <input id='fname' type="text" class="form-control" placeholder="First name">
               </div>
               <div class="col">
-                <input type="text" class="form-control" placeholder="Last name">
+                <input id='lname' type="text" class="form-control" placeholder="Last name">
               </div>
             </div>
             <div class="form-row">
               <div class="col">
                 <br>
               
-                  <input type="text" class="form-control" placeholder="Cell Phone">
+                  <input id='cell' type="text" class="form-control" placeholder="Cell Phone">
               </div>
             </div>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Order</button>
+          <button type="button" class="btn btn-primary"  onclick="toggleOrderConfirmModal()">Order</button>
         </div>
       </div>
     </div>
   </div>
+  <!-- Close Modal -->
+  <!-- Confirmation Modal -->
+  <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Order Success</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row">
+              Order placed successfully
+              <br>
+            </div>
+          </div>
+          <hr>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" onclick='$("#confirmationModal").modal("hide")'>Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Close Confirmation Modal -->
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <!--
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
     crossorigin="anonymous"></script>
-</body>
+  <script src="static/js/order.js" ></script>
+  </body>
 
 </html>
